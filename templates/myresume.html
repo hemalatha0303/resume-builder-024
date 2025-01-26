@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Templates</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/myresume.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="#">SR</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../html/4.home.html">Home</a></li>
+                <li><a href="../html/4.home.html">Resume</a></li>
+                <li><a href="#">Cover Letter</a></li>
+                <li><a href="#">CV</a></li>
+            </ul>
+        </nav>
+        <div class="user-icon"></div>
+    </header>
+
+    <main>
+        <button class="back-button"></button>
+        <h1>My Resume's</h1>
+
+        <div class="templates">
+            <div class="template">
+                <img src="{{ url_for('static', filename='template1..png') }}" alt="Template 1">
+            </div>
+            <div class="template">
+                <img src="{{ url_for('static', filename='template2.png') }}" alt="Template 2">
+            </div>
+            <div class="template">
+                <img src="{{ url_for('static', filename='template3.png') }}" alt="Template 3">
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

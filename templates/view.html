@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Preview</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #50c878;
+        }
+        .ai-gradient {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto">
+        <header class="flex justify-between items-center p-6 bg-white shadow-md">
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mr-3 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                </svg>
+                <h1 class="text-2xl font-bold ai-gradient">AI Resume Builder</h1>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="../html/4.home.html" class="text-gray-600 hover:text-blue-500 transition">Home</a></li>
+                    <li><a href="../html/4.home.html" class="text-gray-600 hover:text-blue-500 transition">Resume</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-blue-500 transition">CV</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-blue-500 transition">Cover Letter</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="p-6">
+            <div class="bg-white shadow-md rounded-lg p-8">
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4 text-blue-600">Personal Information</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="font-semibold text-gray-700">Full Name</p>
+                            <p id="fullName" class="text-gray-600"></p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700">Email</p>
+                            <p id="email" class="text-gray-600"></p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700">Phone</p>
+                            <p id="phone" class="text-gray-600"></p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-700">LinkedIn</p>
+                            <p id="linkedin" class="text-gray-600"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4 text-blue-600">Professional Summary</h2>
+                    <p id="professionalSummary" class="text-gray-600"></p>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4 text-blue-600">Internships</h2>
+                    <div id="internshipsSection">
+                        <div class="mb-4">
+                            <p class="font-semibold text-gray-700">Company Name</p>
+                            <p id="companyName" class="text-gray-600"></p>
+                            
+                            <p class="font-semibold text-gray-700 mt-2">Role</p>
+                            <p id="internshipRole" class="text-gray-600"></p>
+                            
+                            <p class="font-semibold text-gray-700 mt-2">Duration</p>
+                            <p id="internshipDuration" class="text-gray-600"></p>
+                            
+                            <p class="font-semibold text-gray-700 mt-2">Key Contributions</p>
+                            <p id="internshipContributions" class="text-gray-600"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4 text-blue-600">Projects</h2>
+                    <div id="projectsSection">
+                        <div class="mb-4">
+                            <p class="font-semibold text-gray-700">Project Title</p>
+                            <p id="projectTitle" class="text-gray-600"></p>
+                            
+                            <p class="font-semibold text-gray-700 mt-2">Technologies Used</p>
+                            <p id="projectTechnologies" class="text-gray-600"></p>
+                            
+                            <p class="font-semibold text-gray-700 mt-2">Duration</p>
+                            <p id="projectDuration" class="text-gray-600"></p>
+                            
+                            <p class="font-semibold text-gray-700 mt-2">Project Description</p>
+                            <p id="projectDescription" class="text-gray-600"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="flex justify-center space-x-4 mt-8">
+                    <button class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition" onclick="window.location.href='12.customize.html'">
+                        Customize Resume
+                    </button>
+                    <button class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition">
+                        Check ATS Score
+                    </button>
+                    <button class="bg-purple-500 text-white px-6 py-2 rounded hover:bg-purple-600 transition">
+                        Download Resume
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Function to populate resume details
+        function populateResumeDetails() {
+            // Personal Information
+            document.getElementById('fullName').textContent = localStorage.getItem('fullName') || 'N/A';
+            document.getElementById('email').textContent = localStorage.getItem('email') || 'N/A';
+            document.getElementById('phone').textContent = localStorage.getItem('phone') || 'N/A';
+            document.getElementById('linkedin').textContent = localStorage.getItem('linkedin') || 'N/A';
+
+            // Professional Summary
+            document.getElementById('professionalSummary').textContent = localStorage.getItem('professionalSummary') || 'N/A';
+
+            // Internships
+            document.getElementById('companyName').textContent = localStorage.getItem('companyName') || 'N/A';
+            document.getElementById('internshipRole').textContent = localStorage.getItem('internshipRole') || 'N/A';
+            document.getElementById('internshipDuration').textContent = localStorage.getItem('internshipDuration') || 'N/A';
+            document.getElementById('internshipContributions').textContent = localStorage.getItem('internshipContributions') || 'N/A';
+
+            // Projects
+            document.getElementById('projectTitle').textContent = localStorage.getItem('projectTitle') || 'N/A';
+            document.getElementById('projectTechnologies').textContent = localStorage.getItem('projectTechnologies') || 'N/A';
+            document.getElementById('projectDuration').textContent = localStorage.getItem('projectDuration') || 'N/A';
+            document.getElementById('projectDescription').textContent = localStorage.getItem('projectDescription') || 'N/A';
+        }
+
+        // Call the function when the page loads
+        window.onload = populateResumeDetails;
+    </script>
+</body>
+</html>
